@@ -7,6 +7,8 @@ import Navbar from "./components/navbar/navbar"
 import Home from "./components/home/home"
 import Footer from "./components/footer/Footer"
 import About from "./components/about/about"
+import SignUp from "./components/signup/signup"
+import SignIn from "./components/signup/signin"
 
 const App  = () =>{
   return( 
@@ -18,8 +20,8 @@ const App  = () =>{
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About/>} />
       {/* <Route path="/todo" element={<Todo/>} /> */}
-      {/* <Route path="/signin" element={<SignIn />} /> */}
-      {/* <Route path="/signup" element={<SignUp />} /> */}
+      <Route path="/signin" element={<SignIn />} />
+      <Route path="/signup" element={<SignUp />} />
     </Routes>
   </Router>
   <Footer />

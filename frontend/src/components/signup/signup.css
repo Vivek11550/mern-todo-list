@@ -1,0 +1,24 @@
+.todo{
+    width: 100%;
+    height: 100vh;
+}
+
+.sign-up-heading{
+    font-size: 100px;
+    color:  rgb(218, 70, 70);
+    opacity: 0.9;
+}
+
+.row{
+    width: 100%;
+    height: 100vh;
+}
+
+.btn-signup{
+    color: azure;
+    background-color: rgb(218, 70, 70) ;
+    outline: none;
+    border: none;
+    
+}
+
