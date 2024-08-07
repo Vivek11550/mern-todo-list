@@ -9,22 +9,23 @@ import Footer from "./components/footer/Footer"
 import About from "./components/about/about"
 import SignUp from "./components/signup/signup"
 import SignIn from "./components/signup/signin"
+import Todo from "./components/todo/todo"
 
 const App  = () =>{
   return( 
   <div>
-
   <Router>
   <Navbar />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About/>} />
-      {/* <Route path="/todo" element={<Todo/>} /> */}
+      <Route path="/todo" element={<Todo/>} />
       <Route path="/signin" element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
     </Routes>
+    <Footer />
   </Router>
-  <Footer />
+ 
 </div>
 );
 };
