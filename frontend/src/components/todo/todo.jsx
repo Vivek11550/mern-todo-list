@@ -1,31 +1,84 @@
+import TodoCards from "./todo-cards";
 import "./todo.css"
+import React,{useState} from "react";
 
-function Todo () {
+function Todo () { 
+  const[Inputs,setInputs] = useState({title:"",body:""});
+  const[Arrays,setArrays] = useState([]);
+
+  const show = ()=> {
+    document.getElementById("text-area").style.display="block";
+  }
+
+  const change = (e)=>{
+   const{ name,value}= e.target;
+   setInputs ({...Inputs, [name]: value});
+  }
+
+  const submit= ()=> {
+    if(Inputs.title && Inputs.body) {
+   
+    setArrays([...Arrays , Inputs])
+    setInputs ({title:"",body:""});
+    }
+    else 
+    {
+      alert("Task to add kar le yarrrr....");
+    }
+  }
     return (
      <div className="todo">
-      <div className="container ">
-      <div className="d-flex flex-column w-100 p-5 input justify-content-center align-items-center">
-       <div>
+      <div className="todo-main container d-flex justify-content-center align-items-center my-4 flex-column ">
+      <div className="d-flex flex-column todo-inputs-div w-50 ">
        <input
+            className="p-2 todo-inputs"
+            id ="TITLE"
             type="text"
             placeholder="title"
+            name="title"
+            value={Inputs.title}
+            onClick={show}
+            onChange={change}
         />
- </div>
- <div>
- <input
-    type="text-area"
-    placeholder="body" />
-      
- </div>
 
-       
+ <textarea
+    className="p-2 todo-inputs"
+    id="text-area"
+    type = "text"
+    name="body"
+    placeholder="body"
+    value={Inputs.body}
+    onChange={change} 
+
+    />
         
+      </div>
+      <div className=" w-50 d-flex justify-content-end my-2"> 
+      <button className="to-do-btn px-2 py-1 " onClick={submit}>add-cards</button>
       </div>
       </div>
      
+       <div className="todo-body">
+        <div className="container-fluid">
+        <div className="row ">
+        {Arrays && 
+        Arrays.map((item,index)=> (
+          <div className="col-lg-3 col-10 mx-5 my-2 "> 
+          <TodoCards title={item.title} body={item.body}/>
+          </div>
+        ))}
+        
+        </div>
+        </div>
+       </div>
+
+
+
      </div>
+
+
     );
-  }
+  };
   
   export default Todo;
   
