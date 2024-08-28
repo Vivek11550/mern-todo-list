@@ -1,6 +1,9 @@
 import TodoCards from "./todo-cards";
+import Todoupdate from "./todo-update";
 import "./todo.css"
 import React,{useState} from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Todo () { 
   const[Inputs,setInputs] = useState({title:"",body:""});
@@ -20,14 +23,22 @@ function Todo () {
    
     setArrays([...Arrays , Inputs])
     setInputs ({title:"",body:""});
+    toast.success("task added succesfully");
     }
     else 
     {
-      alert("Task to add kar le yarrrr....");
+     toast.error("Task or body should not be empty!!!")
     }
+  }
+
+  const del=(id)=> {
+    Arrays.splice(id,1);
+    setArrays([...Arrays])
+    toast.error("task deleted");
   }
     return (
      <div className="todo">
+      <ToastContainer />
       <div className="todo-main container d-flex justify-content-center align-items-center my-4 flex-column ">
       <div className="d-flex flex-column todo-inputs-div w-50 ">
        <input
@@ -63,14 +74,20 @@ function Todo () {
         <div className="row ">
         {Arrays && 
         Arrays.map((item,index)=> (
-          <div className="col-lg-3 col-10 mx-5 my-2 "> 
-          <TodoCards title={item.title} body={item.body}/>
+          <div className="col-lg-3 col-10 mx-5 my-2 " key={index}> 
+          <TodoCards title={item.title} body={item.body} id={index} delid={del}/>
           </div>
         ))}
         
         </div>
         </div>
        </div>
+
+        <div className="todo-update" id="todo-update">
+        <div className="container">
+        <Todoupdate  />
+        </div>
+        </div>
 
 
 

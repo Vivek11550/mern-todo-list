@@ -2,6 +2,7 @@
     width: 100%;
     min-height: 100vh;
     max-height:auto;
+    position: relative;
     overflow: auto;
 }
 
@@ -36,5 +37,24 @@
 
 .card-icon-head{
     cursor: pointer;
+    transition:all 0.3s;
 }
+
+.card-icon-head:hover{
+ box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px ;
+ transition: all 0.3s;
+ transform: scale(1.05);
+}
+
+.todo-update{
+    height: 85vh;
+    width: 100%;
+    background-color: blanchedalmond;
+    position: absolute;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    display:none;
+}
+
 
